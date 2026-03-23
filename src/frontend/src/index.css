@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.375rem;
+
+    /* KTC Brand Colors */
+    --background: 0.91 0.03 80; /* beige #EFE2CF */
+    --foreground: 0.38 0.03 50; /* dark brown body #5A4A3F */
+    --card: 0.95 0.02 85; /* card bg #F7F1E6 */
+    --card-foreground: 0.38 0.03 50;
+    --popover: 0.95 0.02 85;
+    --popover-foreground: 0.38 0.03 50;
+    --primary: 0.71 0.1 75; /* gold #C9A35B */
+    --primary-foreground: 0.2 0.03 50; /* dark brown */
+    --secondary: 0.24 0.04 50; /* dark header brown #3A2A22 */
+    --secondary-foreground: 0.91 0.03 80;
+    --muted: 0.86 0.03 80;
+    --muted-foreground: 0.55 0.03 60;
+    --accent: 0.52 0.12 50; /* CTA brown #A85A2F */
+    --accent-foreground: 0.97 0.01 80;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.8 0.05 80; /* #D7C2A6 */
+    --input: 0.86 0.03 80;
+    --ring: 0.71 0.1 75;
+
+    /* Gold accent var */
+    --gold: 0.71 0.1 75;
+    --gold-dark: 0.65 0.12 72;
+    --dark-brown: 0.2 0.03 50;
+    --cta-brown: 0.52 0.12 50;
+    --star-gold: 0.72 0.13 75;
+
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.91 0.03 80;
+    --sidebar-foreground: 0.38 0.03 50;
+    --sidebar-primary: 0.71 0.1 75;
+    --sidebar-primary-foreground: 0.2 0.03 50;
+    --sidebar-accent: 0.86 0.03 80;
+    --sidebar-accent-foreground: 0.38 0.03 50;
+    --sidebar-border: 0.8 0.05 80;
+    --sidebar-ring: 0.71 0.1 75;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Lato", sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Cinzel", serif;
+  }
+}
