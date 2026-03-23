@@ -87,7 +87,7 @@ export function Footer() {
                 <br />
                 Near Kanpur
               </p>
-              <p className="text-[#D7C2A6]/70 text-sm">+91 89170 00012</p>
+              <p className="text-[#D7C2A6]/70 text-sm">+91 89170 00027</p>
               <p className="text-[#D7C2A6]/70 text-sm">info@ktcagarbatti.com</p>
             </address>
           </div>

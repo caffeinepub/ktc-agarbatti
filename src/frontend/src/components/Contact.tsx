@@ -53,9 +53,9 @@ export function Contact() {
             viewport={{ once: true }}
           >
             <p className="text-foreground leading-relaxed mb-8">
-              We’d love to hear from you. Whether you have questions about our
+              We'd love to hear from you. Whether you have questions about our
               products, want to place a bulk order, or simply wish to share your
-              experience — reach out and we’ll respond with warmth.
+              experience — reach out and we'll respond with warmth.
             </p>
             <div className="space-y-5">
               <div className="flex items-start gap-4">
@@ -67,9 +67,9 @@ export function Contact() {
                     Our Address
                   </p>
                   <p className="text-foreground/70 text-sm">
-                    123 Incense Lane, Nashik
+                    Sahajani, Shuklaganj, Unnao
                     <br />
-                    Maharashtra — 422001
+                    Near Kanpur
                   </p>
                 </div>
               </div>
@@ -81,7 +81,7 @@ export function Contact() {
                   <p className="font-cinzel text-[#2B211B] text-sm font-semibold mb-1">
                     Phone
                   </p>
-                  <p className="text-foreground/70 text-sm">+91 98765 43210</p>
+                  <p className="text-foreground/70 text-sm">+91 89170 00027</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
