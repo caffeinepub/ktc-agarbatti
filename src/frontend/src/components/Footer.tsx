@@ -31,8 +31,8 @@ export function Footer() {
               className="h-14 w-auto mb-5"
             />
             <p className="text-[#D7C2A6]/70 text-sm leading-relaxed">
-              Handcrafted incense for your spiritual journey. Natural
-              ingredients, traditional methods, sacred fragrance.
+              Premium incense for your spiritual journey. Natural ingredients,
+              modern production, sacred fragrance.
             </p>
           </div>
 

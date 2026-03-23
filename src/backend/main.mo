@@ -1,5 +1,3 @@
-import Array "mo:core/Array";
-import Iter "mo:core/Iter";
 import List "mo:core/List";
 import Map "mo:core/Map";
 import Order "mo:core/Order";
@@ -19,7 +17,58 @@ actor {
     inStock : Bool;
   };
 
+  module Product {
+    public func compare(p1 : Product, p2 : Product) : Order.Order {
+      Nat.compare(p1.id, p2.id);
+    };
+  };
+
   let products = Map.empty<Nat, Product>();
+
+  // Seed default products
+  do {
+    let seedProducts : [Product] = [
+      {
+        id = 1;
+        name = "Rose Agarbatti";
+        category = "Agarbatti";
+        description = "Delicate rose fragrance crafted from pure rose petals. Perfect for morning prayers and meditation.";
+        price = 12000;
+        imageUrl = "/assets/generated/product-rose-agarbatti.dim_400x400.jpg";
+        inStock = true;
+      },
+      {
+        id = 2;
+        name = "Chandan Agarbatti";
+        category = "Agarbatti";
+        description = "Rich sandalwood aroma derived from aged chandan. Evokes serenity and temple tranquility.";
+        price = 15000;
+        imageUrl = "/assets/generated/product-chandan-agarbatti.dim_400x400.jpg";
+        inStock = true;
+      },
+      {
+        id = 3;
+        name = "Guggal Dhup Sticks";
+        category = "Dhup Sticks";
+        description = "Sacred guggal resin dhup sticks for deep purification rituals and spiritual ceremonies.";
+        price = 9500;
+        imageUrl = "/assets/generated/product-guggal-dhup.dim_400x400.jpg";
+        inStock = true;
+      },
+      {
+        id = 4;
+        name = "Sambrani Cups";
+        category = "Sambrani";
+        description = "Traditional sambrani cups with aromatic loban smoke — ideal for evening aarti and blessing rituals.";
+        price = 8500;
+        imageUrl = "/assets/generated/product-sambrani.dim_400x400.jpg";
+        inStock = true;
+      },
+    ];
+    for (p in seedProducts.values()) {
+      products.add(p.id, p);
+    };
+  };
 
   // Cart Types
   type CartItem = {
@@ -55,28 +104,23 @@ actor {
     email : Text;
   };
 
-  module Product {
-    public func compare(p1 : Product, p2 : Product) : Order.Order {
-      Nat.compare(p1.id, p2.id);
-    };
-  };
-
   // Product Catalog Functions
   public query func getAllProducts() : async [Product] {
-    products.values().toArray().sort();
+    let arr = products.values().toArray();
+    arr.sort();
   };
 
-  public shared ({ caller }) func addProduct(product : Product) : async () {
+  public shared func addProduct(product : Product) : async () {
     if (products.containsKey(product.id)) { Runtime.trap("This product already exists.") };
     products.add(product.id, product);
   };
 
-  public shared ({ caller }) func updateProduct(product : Product) : async () {
+  public shared func updateProduct(product : Product) : async () {
     if (not products.containsKey(product.id)) { Runtime.trap("This product does not exist.") };
     products.add(product.id, product);
   };
 
-  public shared ({ caller }) func deleteProduct(productId : Nat) : async () {
+  public shared func deleteProduct(productId : Nat) : async () {
     if (not products.containsKey(productId)) { Runtime.trap("This product does not exist.") };
     products.remove(productId);
   };
@@ -131,22 +175,22 @@ actor {
   };
 
   // Inquiry Functions
-  public shared ({ caller }) func submitInquiry(inquiry : Inquiry) : async () {
+  public shared func submitInquiry(inquiry : Inquiry) : async () {
     inquiries.add(nextInquiryId, inquiry);
     nextInquiryId += 1;
   };
 
-  public query ({ caller }) func getAllInquiries() : async [Inquiry] {
+  public query func getAllInquiries() : async [Inquiry] {
     inquiries.values().toArray();
   };
 
   // Testimonial Functions
-  public shared ({ caller }) func addTestimonial(testimonial : Testimonial) : async () {
+  public shared func addTestimonial(testimonial : Testimonial) : async () {
     testimonials.add(nextTestimonialId, testimonial);
     nextTestimonialId += 1;
   };
 
-  public query ({ caller }) func getAllTestimonials() : async [Testimonial] {
+  public query func getAllTestimonials() : async [Testimonial] {
     testimonials.values().toArray();
   };
 };
